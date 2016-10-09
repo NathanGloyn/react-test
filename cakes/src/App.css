@@ -1,0 +1,11 @@
+.cake-iten {
+  padding-bottom: 10px;
+}
+
+.cake-image-container img {
+  width: auto;
+  height: auto;
+  max-width: 45%;
+  max-height: 45%;
+  vertical-align: middle
+}
