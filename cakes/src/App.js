@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.cakes = [];
-    this.state= {cakes: []};
+    this.state= {cakes: undefined};
     this.search = this.search.bind(this);
   }
   
@@ -22,7 +22,7 @@ class App extends Component {
 
   search(criteria){
     if(criteria){
-      var filteredCakes = this.cakes.filter(x => x.title.indexOf(criteria) > -1);
+      let filteredCakes = this.cakes.filter(x => x.title.indexOf(criteria) > -1);
       this.setState({cakes: filteredCakes});
     } else {
       this.setState({cakes: this.cakes});
@@ -37,7 +37,6 @@ class App extends Component {
       </div>
     );
   }
-
 
 }
 

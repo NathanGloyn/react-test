@@ -12,7 +12,7 @@ it('renders without crashing', () => {
   }
 
   ReactDOM.render(<Search onSearch={callback}/>, div);
-  expect(render(<Search onSearch={callback}/>).find('#filterCriteria').length).toBe(1);
+  expect(render(<Search onSearch={callback}/>).find('#searchCriteria').length).toBe(1);
 });
 
 
@@ -25,7 +25,7 @@ it('executes the callback', () => {
         searchData = e;
     }
 
-    var searchComponent = mount(<Search onSearch={callback}/>).find('#filterCriteria');
+    var searchComponent = mount(<Search onSearch={callback}/>).find('#searchCriteria');
     searchComponent.simulate('change', {target: {value: 'My new value'}})
 
     expect(searchData).toEqual('My new value');

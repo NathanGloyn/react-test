@@ -21,12 +21,13 @@ class Search extends Component{
 
     render(){
         return (
-            <div>
-                <label htmlFor="filterCriteria">Filter</label>
-                <input id="filterCriteria" type="text" onChange={this.search} ></input>            
+            <div className="search">
+                <label htmlFor="searchCriteria">Search:</label>
+                <input id="searchCriteria" className="searchInput" type="text" onChange={this.search} placeholder="cake name"  ></input>            
             </div>
         )
     }
 }
+
 
 export default Search;
