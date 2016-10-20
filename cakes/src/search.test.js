@@ -15,11 +15,7 @@ it('renders without crashing', () => {
   expect(render(<Search onSearch={callback}/>).find('#searchCriteria').length).toBe(1);
 });
 
-
-
 it('executes the callback', () => {
-  
-    const seachInput = sinon.spy();
     let searchData;
     const callback = function(e){
         searchData = e;

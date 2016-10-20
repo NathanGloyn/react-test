@@ -6,8 +6,7 @@ import CakeList from './cakeList';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   let cakeData=[];
-  let filtered = false;
-  ReactDOM.render(<CakeList cakes={cakeData} filtered={filtered} />, div);
+  ReactDOM.render(<CakeList cakes={cakeData} />, div);
 });
 
 
