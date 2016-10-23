@@ -4,7 +4,13 @@
 
 
 .title {
-  text-decoration: underline
+  font-weight: bold;
+  text-decoration: underline;
+  float: left;
+}
+
+.desc {
+  clear: both;
 }
 
 .cake-image-container img {
@@ -15,9 +21,20 @@
   margin: 15px 0 10px 10px;
 }
 
+.addCakeLink {
+  margin: 0 0 10px 10px;
+}
+
+.addCakeLink > a > span {
+  margin-right: 5px;
+}
+
+.updateCakeLink {
+  margin: 0 0 0 10px;
+}
 
 @media only screen {
-  .searchInput {
+  .search > input[type=text] {
     margin-left: 10px;
     width: 38%
   }
@@ -25,38 +42,38 @@
 
 /* device in portrait */
 @media only screen and (max-width: 374px) and (orientation: portrait) {
-  .searchInput{
+  .search > input[type=text] {
     width: 75%;
   }
 }
 
 @media only screen and (min-width: 375px) and (max-width: 414px) and (orientation: portrait) {
-  .searchInput{
+  .search > input[type=text] {
     width: 80%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
-  .searchInput{
+  .search > input[type=text] {
     width: 38%;
   }
 }
 
 /* device in landscape*/
 @media only screen and (max-width: 568px) and (orientation: landscape) {
-  .searchInput{
+  .search > input[type=text] {
     width: 35%;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 736px) and (orientation: landscape) {
-  .searchInput{
+  .search > input[type=text] {
     width: 37%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .searchInput{
+  .search > input[type=text] {
     width: 41%;
   }
 }
@@ -96,7 +113,7 @@ form > div {
   margin: 0 0 10px 0;
 }
 
-form > div > label {
+form > div > label, h2 {
 	width: 23%;
   float: left;
   padding-right: 10px;
@@ -136,7 +153,7 @@ textarea:focus {
     margin: 0 0 15px 0; 
   }
 
-  form > div > label {
+  form > div > label, h2 {
 	  width: 100%;
     float: none;
     margin: 0 0 5px 0;
@@ -154,7 +171,7 @@ textarea:focus {
 }
 
 @media (min-width: 1200px) {
-  form > div > label {
+  form > div > label, h2 {
   	text-align: right;
   }
 }

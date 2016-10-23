@@ -13,9 +13,9 @@ class CakeForm extends Component {
         this.formIsValid = this.formIsValid.bind(this);
 
         this.state = {
-            title: props.title ? props.title : '',
-            desc: props.desc ? props.desc : '',
-            image: props.image ? props.image : '',
+            title: props.cake ? props.cake.title  : '',
+            desc: props.cake ? props.cake.desc : '',
+            image: props.cake ? props.cake.image : '',
             status: {
                 title: null,
                 desc: null,
@@ -34,6 +34,7 @@ class CakeForm extends Component {
     }
 
     handleSubmit(e) {
+        
         e.preventDefault();
         if(this.formIsValid()){
             this.props.onSubmit({
@@ -88,6 +89,9 @@ class CakeForm extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
+                <div>
+                    <h2>{this.state.title ? 'Edit' : 'Add new'} cake</h2>
+                </div>            
                 <div>
                     <label htmlFor="title">Title:</label>
                     <div>

@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
+import FontAwesome from 'react-fontawesome';
 
 class CakeList extends Component{
+
+    constructor(props){
+        super(props);
+        this.edit = this.edit.bind(this);
+    }
+
+    edit(index){
+        this.props.onEdit(index);
+    }
 
     render(){
 
@@ -28,8 +38,11 @@ class CakeList extends Component{
                                     </div>
                                 </div>
                                 <div className="textColumn">
-                                    <h3 className="title">{cake.title}</h3>
-                                    <p>{cake.desc}</p>                        
+                                    <div>
+                                        <span className="title">{cake.title}</span>
+                                        <a className="updateCakeLink" href="#" onClick={()=>this.edit(i)}><FontAwesome name="pencil" /></a>
+                                    </div>
+                                    <p className="desc">{cake.desc}</p>                        
                                 </div>
                             </div>);
                     })}</div>);        

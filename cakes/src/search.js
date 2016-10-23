@@ -23,7 +23,7 @@ class Search extends Component{
         return (
             <div className="search">
                 <label htmlFor="searchCriteria">Search:</label>
-                <input id="searchCriteria" className="searchInput" type="text" onChange={this.search} placeholder="cake name"  ></input>            
+                <input id="searchCriteria" type="text" onChange={this.search} placeholder="cake name"  ></input>            
             </div>
         )
     }

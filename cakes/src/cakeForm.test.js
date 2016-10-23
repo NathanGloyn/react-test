@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon'; 
 import CakeForm from './cakeForm';
+import update from 'react-addons-update';
+
+let cake = {
+  title: "Lemon Cake",
+  desc: "A lemon cake",
+  image: "lemoncake.jpg"
+}
 
 describe('when creating component', () => {
 
@@ -20,7 +27,7 @@ describe('when creating component', () => {
   });
 
   it('should set state if values provided', () => {
-    const form = shallow(<CakeForm title="Lemon Cake" desc="A lemon cake" image="lemoncake.jpg" />);
+    const form = shallow(<CakeForm cake={cake} />);
 
     expect(form.state().title).toBe("Lemon Cake");
     expect(form.state().desc).toBe("A lemon cake");
@@ -120,6 +127,7 @@ describe('when validating input', ()=> {
 })
 
 
+
 describe('when using callbacks', () => {
   it('Executes cancel callback', () => {
     let buttonSpy = sinon.spy();
@@ -129,5 +137,33 @@ describe('when using callbacks', () => {
     form.simulate('click');
     expect(buttonSpy.called).toBe(true);
   });  
+
+  it('Executes submit callback when state is valid', () => {
+    let buttonSpy = sinon.spy();
+
+    const form = mount(<CakeForm onSubmit={buttonSpy} />);
+    const submit = form.find('form');
+
+    form.setState({title: 'cake title', desc: 'cake desc', image: 'cake image'});
+
+    form.setState({status: { valid: true } });
+
+    submit.simulate('submit');
+    
+    expect(buttonSpy.called).toBe(true);
+  });
+
+  it('does not execute callback if state is not valid', () => {
+    let buttonSpy = sinon.spy();
+
+    const form = mount(<CakeForm onSubmit={buttonSpy} />);
+    const submit = form.find('form');
+
+    submit.simulate('submit');
+    
+    expect(buttonSpy.called).toBe(false);
+
+  })
+
 })
 
